@@ -43,6 +43,7 @@ Artifacts: `checkpoints/model_best.pt`, `checkpoints/label_map.json`, `checkpoin
 
 - Metrics averaging: default to macro to be safer on class imbalance; override with `--metrics-average binary|weighted` as needed.
 - TensorBoard: add `--tensorboard` and run `tensorboard --logdir checkpoints`.
+<img width="495" height="498" alt="image" src="https://github.com/user-attachments/assets/2fe83f61-6d62-4cee-8a74-fe61490364a7" />
 
 ### 4) Inference (CLI)
 
