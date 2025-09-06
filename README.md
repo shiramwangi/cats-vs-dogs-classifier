@@ -28,6 +28,8 @@ You can download the Kaggle Dogs vs Cats dataset and extract into this structure
 ### 3) Train
 
 <img width="1547" height="502" alt="image" src="https://github.com/user-attachments/assets/2d3b89d8-9628-4010-9c23-6613f6673938" />
+<img width="1545" height="500" alt="image" src="https://github.com/user-attachments/assets/c6d1cbff-fa2a-4ba5-ab2a-4610f9215fad" />
+
 
 ```bash
 python -m src.train \
