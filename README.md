@@ -1,6 +1,8 @@
 ## Cats vs Dogs Classifier (PyTorch)
 
 End-to-end project to train and deploy a CNN/Transfer Learning model that classifies images as cat or dog. Includes data preprocessing, training, evaluation, inference, Streamlit UI, and Docker.
+### SCREENSHOTS
+<img width="715" height="788" alt="image" src="https://github.com/user-attachments/assets/cd8de46a-dbcc-4393-9fef-49aad5be1f27" />
 
 ### 1) Setup
 
