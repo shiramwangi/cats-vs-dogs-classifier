@@ -27,20 +27,44 @@ You can download the Kaggle Dogs vs Cats dataset and extract into this structure
 
 ### 3) Train
 
+**Basic training (frozen backbone):**
 ```bash
 python -m src.train \
   --data-dir data \
   --out-dir checkpoints \
   --model resnet18 \
-  --epochs 5 \
+  --epochs 10 \
   --batch-size 32 \
   --tensorboard \
   --metrics-average macro
 ```
-Artifacts: `checkpoints/model_best.pt`, `checkpoints/label_map.json`, `checkpoints/confusion_matrix.png`, `checkpoints/train_log.csv`.
 
-- Metrics averaging: default to macro to be safer on class imbalance; override with `--metrics-average binary|weighted` as needed.
-- TensorBoard: add `--tensorboard` and run `tensorboard --logdir checkpoints`.
+**Fine-tuning (unfreeze all layers):**
+```bash
+python -m src.train \
+  --data-dir data \
+  --out-dir checkpoints \
+  --model resnet18 \
+  --epochs 10 \
+  --batch-size 32 \
+  --unfreeze \
+  --tensorboard \
+  --metrics-average macro
+```
+
+**Artifacts:**
+- `checkpoints/model_best.pt` - Best model weights
+- `checkpoints/label_map.json` - Class mappings
+- `checkpoints/confusion_matrix.png` - Validation confusion matrix
+- `checkpoints/train_log.csv` - Training metrics
+- `checkpoints/training_curves.png` - Loss/accuracy plots
+
+**Features:**
+- **Data Augmentation**: RandomResizedCrop, ColorJitter, RandomAffine, RandomRotation
+- **Transfer Learning**: Freeze pretrained backbone by default (`--freeze-backbone`)
+- **Fine-tuning**: Use `--unfreeze` to train all layers
+- **Metrics**: Default to macro averaging for class imbalance safety
+- **TensorBoard**: Add `--tensorboard` and run `tensorboard --logdir checkpoints`
 
 ### 4) Inference (CLI)
 

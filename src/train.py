@@ -16,17 +16,17 @@ except Exception:  # pragma: no cover
 
 from .data import create_dataloaders
 from .models import BaselineCNN, create_transfer_model
-from .utils import compute_metrics, plot_confusion, save_checkpoint, save_label_map
+from .utils import compute_metrics, plot_confusion, save_checkpoint, save_label_map, plot_training_curves
 
 
 def get_device() -> torch.device:
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def build_model(model_name: str, num_classes: int) -> nn.Module:
+def build_model(model_name: str, num_classes: int, freeze_backbone: bool = True) -> nn.Module:
     if model_name == "baseline":
         return BaselineCNN(num_classes=num_classes)
-    return create_transfer_model(model_name=model_name, num_classes=num_classes, pretrained=True)
+    return create_transfer_model(model_name=model_name, num_classes=num_classes, pretrained=True, freeze_backbone=freeze_backbone)
 
 
 def evaluate(model: nn.Module, loader: DataLoader, device: torch.device) -> tuple[float, list[int], list[int]]:
@@ -59,7 +59,7 @@ def train(args):
     )
 
     num_classes = len(full_dataset.classes)
-    model = build_model(args.model, num_classes).to(device)
+    model = build_model(args.model, num_classes, freeze_backbone=args.freeze_backbone).to(device)
 
     optimizer = Adam(model.parameters(), lr=args.lr)
     criterion = nn.CrossEntropyLoss()
@@ -157,6 +157,9 @@ def train(args):
 
     if writer is not None:
         writer.close()
+    
+    # Generate training curves plot
+    plot_training_curves(csv_path, out_dir / "training_curves.png")
 
 
 def parse_args():
@@ -172,9 +175,14 @@ def parse_args():
     parser.add_argument("--num-workers", type=int, default=2)
     parser.add_argument("--tensorboard", action="store_true", help="Enable TensorBoard logging")
     parser.add_argument("--metrics-average", type=str, default=None, choices=[None, "binary", "macro", "weighted"], help="Averaging for PRF1 metrics")
+    parser.add_argument("--freeze-backbone", action="store_true", default=True, help="Freeze pretrained backbone layers (transfer learning)")
+    parser.add_argument("--unfreeze", action="store_true", help="Unfreeze all layers for fine-tuning")
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
+    # Handle unfreeze flag
+    if args.unfreeze:
+        args.freeze_backbone = False
     train(args)
