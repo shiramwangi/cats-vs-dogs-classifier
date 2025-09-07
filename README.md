@@ -14,7 +14,8 @@ pip install -r requirements.txt
 ```
 
 ### 2) Prepare Data
-<img width="431" height="341" alt="image" src="https://github.com/user-attachments/assets/c049d8f7-0f30-410b-8d23-7067cdfbca42" />
+<img width="431" height="341" alt="image" src="https://github.com/user-attachments/assets/c049d8f7-0f30-410b-8d23-7067cdfbca42" /> <img width="475" height="475" alt="image" src="https://github.com/user-attachments/assets/513fd864-b3e8-4baa-960c-ed80022dd2b9" />
+
 
 Organize images in `data/` using `ImageFolder` format, or pre-split as shown:
 ```
