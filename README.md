@@ -3,6 +3,7 @@
 End-to-end project to train and deploy a CNN/Transfer Learning model that classifies images as cat or dog. Includes data preprocessing, training, evaluation, inference, Streamlit UI, and Docker.
 ### SCREENSHOTS
 <img width="715" height="788" alt="image" src="https://github.com/user-attachments/assets/cd8de46a-dbcc-4393-9fef-49aad5be1f27" />
+<img width="611" height="703" alt="image" src="https://github.com/user-attachments/assets/5517b3cf-eaa1-42ab-987a-80dc5072fd22" />
 
 ### 1) Setup
 
