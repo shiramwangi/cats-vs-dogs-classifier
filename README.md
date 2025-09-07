@@ -41,7 +41,7 @@ python -m src.train \
   --metrics-average macro
 ```
 <img width="1540" height="501" alt="image" src="https://github.com/user-attachments/assets/a4b82eb4-d75b-4e88-ae15-5e8aad96b873" />
-
+<img width="1542" height="493" alt="image" src="https://github.com/user-attachments/assets/ec18113f-6f99-4ca4-9308-91ef2e1bbcb1" />
 **Fine-tuning (unfreeze all layers):**
 ```bash
 python -m src.train \
