@@ -40,6 +40,7 @@ python -m src.train \
   --tensorboard \
   --metrics-average macro
 ```
+<img width="1540" height="501" alt="image" src="https://github.com/user-attachments/assets/a4b82eb4-d75b-4e88-ae15-5e8aad96b873" />
 
 **Fine-tuning (unfreeze all layers):**
 ```bash
