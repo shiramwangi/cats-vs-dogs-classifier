@@ -42,6 +42,8 @@ python -m src.train \
 ```
 <img width="1540" height="501" alt="image" src="https://github.com/user-attachments/assets/a4b82eb4-d75b-4e88-ae15-5e8aad96b873" />
 <img width="1542" height="493" alt="image" src="https://github.com/user-attachments/assets/ec18113f-6f99-4ca4-9308-91ef2e1bbcb1" />
+<img width="1542" height="501" alt="image" src="https://github.com/user-attachments/assets/c4aa583f-f60b-43b3-9c42-2afe9de13bc3" />
+
 **Fine-tuning (unfreeze all layers):**
 ```bash
 python -m src.train \
