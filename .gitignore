@@ -10,6 +10,8 @@ venv/
 # Data and outputs
 data/
 checkpoints/
+checkpoints_corrected/
+!checkpoints_corrected/model_best.pt
 outputs/
 logs/
 
@@ -24,3 +26,4 @@ Thumbs.db
 
 # Streamlit cache
 .streamlit/
+
